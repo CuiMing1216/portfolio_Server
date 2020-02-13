@@ -22,7 +22,7 @@ router.post('/', function(req, res, next) {
 
     res.status(200).json({message:'Email sent successfully!'});
   })
-  res.render('index', { title: req.body.email });
+  // res.render('index', { title: req.body.email });
 });
 
 module.exports = router;
