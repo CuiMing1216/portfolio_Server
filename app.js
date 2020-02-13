@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 //
 var cors = require('cors');
+var dotenv = require('dotenv');
 //
 
 var mongoose = require('mongoose');
@@ -16,6 +17,7 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+dotenv.config({ path: path.resolve(__dirname, '.env') });
 
 mongoose.connect(process.env.MONGODB_URL, 
   {useCreateIndex:true, useUnifiedTopology:true})
