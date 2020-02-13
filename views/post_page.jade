@@ -1,0 +1,32 @@
+//- <!DOCTYPE html> 
+//- <html>
+//-     <head>
+//-         <title>post</title>
+//-         <link rel='stylesheet' href='/stylesheets/style.css' />
+//-     </head>
+//-     <body>
+//-         <div>POST test</div>
+//-         <form action="/result_page" method="post">
+//-             <input type="text" name="id" placeholder="Enter id here">
+//-             <input type="text" name="age" placeholder="Enter age here">
+//-             <input type="submit" value="Submit">
+//-         </form>
+//-     </body>
+//- </html>
+
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+   
+    
+    h1= title
+    p Welcome to #{title}
+
+    form(method="POST", action='/result_page')
+    input(type="text", name="name" )
+    input(type="text", name="email")
+    p submit
+    input(type="submit")
