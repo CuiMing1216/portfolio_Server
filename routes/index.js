@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var Email = require('./../model/email');
+const sgMail = require('@sendgrid/mail');
 
+var Email = require('./../model/email');
 /* GET home page. */
 // router.get('/', function(req, res, next) {
 //   res.render('index', { title: 'Express' });
@@ -30,9 +31,19 @@ router.post('/', function(req, res, next) {
       return res.status(500).json({message:'Send Email Error', error:err});
     }
 
+    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+    const new_mail = {
+      to : 'cuiming1216@gmail.com',
+      from : req.body.email,
+      subject : req.body.name,
+      text : req.body.message,
+      html : '<strong>and easy to do anywhere, even with Node.js</strong>'
+    };
+    sgMail.send(new_mail)
+          .then(()=>{},console.error);
+
     res.status(200).json({message:'Email sent successfully!'});
   })
-  // res.render('index', { title: req.body.email });
 });
 
 module.exports = router;
