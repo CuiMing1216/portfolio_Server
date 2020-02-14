@@ -3,8 +3,18 @@ var router = express.Router();
 var Email = require('./../model/email');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+// router.get('/', function(req, res, next) {
+//   res.render('index', { title: 'Express' });
+// });
+
+
+router.get('/', function(req, res, next){
+  Email.find({}, function(err, data){
+    if (err)
+      return res.status(500).json({message: 'Get Data Error', error:err});
+
+      res.status(200).json({data});
+  });
 });
 
 
