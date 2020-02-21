@@ -39,7 +39,9 @@ router.post('/', function(req, res, next) {
       text : req.body.message,
       html : '<strong>and easy to do anywhere, even with Node.js</strong>'
     };
-    sgMail.send(new_mail, ()=>{
+    sgMail.send(new_mail, (err)=>{
+      if (err) 
+        return res.status(500).json({message:'Send Email Error', error:err});
       res.status(200).json({message:'Email sent successfully!'});
     }
     );

@@ -14,6 +14,8 @@ var result_page = require('./routes/result_page');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var trackRouter = require('./routes/track');
+var resumeRouter = require('./routes/resume');
 
 var app = express();
 
@@ -39,6 +41,9 @@ app.use('/users', usersRouter);
 
 app.use('/post_page', post_page);
 app.use('/result_page', result_page);
+app.use('/track', trackRouter);
+app.use('/resume', resumeRouter);
+
 
 
 
