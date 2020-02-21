@@ -123,7 +123,7 @@ let resumeData = {
         }
         ]
     },
-    "Light" : {
+    "light" : {
         "name": "Cui Ming",
         "role": "WordPress Developer",
         "linkedinId":"cui ming",

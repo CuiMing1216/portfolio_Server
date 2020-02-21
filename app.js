@@ -21,9 +21,14 @@ var app = express();
 
 dotenv.config({ path: path.resolve(__dirname, '.env') });
 
-mongoose.connect(process.env.MONGODB_URL, 
-  {useCreateIndex:true, useUnifiedTopology:true})
-.catch(err => console.error(err));
+mongoose
+  .connect(process.env.MONGODB_URL, {
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+    useNewUrlParser: true
+  })
+  .catch(err => console.error(err));
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
